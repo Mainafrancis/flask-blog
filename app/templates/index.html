@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='stylesheets/styles.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="landingspot">
+    <div class="container-fluid">
+        <div class="textmiddle">
+            <h1 style="font-family: 'Berkshire Swash', cursive;">Welcome To FlaskBlog</h1>
+            <p><i>{{ quotes.quote }}</i></p>
+            <p>{{ quotes.author }}</p>
+            <a href="{{url_for('main.add_article')}}" class="btn btn-primary">Write An Article</a>
+            <a href="{{url_for('auth.register')}}" class="btn btn-primary">Sign Up</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="row">
+    <div>
+        <h1>Article Headlines</h1>
+        {% for article in articles %}
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ article.category }}</div>
+                <div class="panel-body">
+                    <p>{{ article.article | truncate(200) }}</p>
+                    <p><strong>{{ article.user.username }}</strong></p>
+                    <a href="{{url_for('main.comment',article_id=article.id)}}" class="btn btn-primary">Read-full
+                        Article</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
