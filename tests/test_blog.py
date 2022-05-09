@@ -24,4 +24,18 @@ class BlogTest(unittest.TestCase):
         self.assertEquals(self.new_article.article,'article1')
         self.assertEquals(self.new_article.category,'technology')
         self.assertEquals(self.new_article.user_id,self.user_admin)
-                
+
+    def test_save_article(self):
+        '''
+        test saving in the db
+        '''
+        self.new_article.save_article()
+        self.assertTrue(len(Review.query.all())>0)
+
+    def test_get_article_by_id(self):
+        '''
+        tests getting article by id
+        '''
+        self.new_article.save_article()
+        got_article = Article.query.get(1)
+        self.assertTrue(len(got_article)==1)
