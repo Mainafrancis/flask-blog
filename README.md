@@ -4,9 +4,6 @@
 
 #### By Francis Mwangi Maina. {c.h.u.i}
 
-## Link to live site
-You can view the site here ---> https://flask-blog254.herokuapp.com
-
 ## Description
 This is a blog site created using the python flask framework whereby writers can be able to write articles.
 
