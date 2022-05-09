@@ -25,4 +25,7 @@ def create_app(configname):
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)
 
-    
+    #Initialising the Importations
+    db.init_app(app)
+    bootstrap.init_app(app)
+    login_manager.init_app(app)
