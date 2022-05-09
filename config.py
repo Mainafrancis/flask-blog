@@ -12,4 +12,19 @@ class ProdConfig(Config):
     '''
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-        
+
+class DevConfig(Config):
+    '''
+    Development Configurations
+    '''
+    SECRET_KEY='testkeyindevconfig'
+    DEBUG = True
+
+class TestConfig(Config):
+    SECRET_KEY='testkeyintestconfig'
+
+configurations = {
+    "production":ProdConfig,
+    "development":DevConfig,
+    "testing":TestConfig
+}              
