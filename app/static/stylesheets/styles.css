@@ -1,0 +1,24 @@
+.panel{
+    color:black;
+    opacity: 0.7;
+}
+
+.landingspot {
+    background-image: url('../appphotos/landingpage.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+    color:black;
+    text-align: center;
+    padding-bottom: 10vh;
+}
+
+.textmiddle {
+    padding-top: 200px;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+  }
